@@ -1,0 +1,35 @@
+--Create a makeup store database
+
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, item TEXT, section TEXT, price INTEGER, popularity INTEGER);
+
+INSERT INTO store VALUES (1, "moisturizer", "skincare", 8.99, 50);
+INSERT INTO store VALUES (2, "foundation", "face", 16.99, 70);
+INSERT INTO store VALUES (3, "concealer", "face", 12.99, 65);
+INSERT INTO store VALUES (4, "setting powder", "face", 7.99, 65);
+INSERT INTO store VALUES (5, "eye primer", "eyes", 8.99, 35);
+INSERT INTO store VALUES (6, "eyeshadow pallete", "eyes", 19.99, 80);
+INSERT INTO store VALUES (7, "mascara", "eyes", 10.99, 90);
+INSERT INTO store VALUES (8, "lipstick", "lips", 16.99, 87);
+INSERT INTO store VALUES (9, "blush", "face", 8.99, 75);
+INSERT INTO store VALUES (10, "eyeliner", "eyes", 13.99, 45);
+INSERT INTO store VALUES (11, "highlighter", "face", 6.99,20);
+INSERT INTO store VALUES (12, "makeup wipes", "skincare", 14.99, 35);
+INSERT INTO store VALUES (13, "setting spray", "face", 21.99, 83);
+INSERT INTO store VALUES (14, "contour", "face", 6.99, 70);
+INSERT INTO store VALUES (15, "makeup brushes", "skincare", 19.99, 90);
+
+--display the database ordered by price. 
+SELECT * FROM store
+ORDER BY price desc; 
+
+--what is the avg price of items in the bulk section? 
+SELECT AVG(price) "avg face item price"
+FROM store
+where section='face'; 
+
+--what are the most 5 popular items? 
+SELECT item, price, popularity
+FROM store
+order by popularity desc
+limit 5; 
